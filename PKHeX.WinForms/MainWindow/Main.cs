@@ -550,7 +550,7 @@ public partial class Main : Form
     {
         if (!CanFocus)
         {
-            SystemSounds.Asterisk.Play();
+            SoundPlayer.SystemSounds.Asterisk.Play();
             return;
         }
         OpenFromPath(path);
@@ -812,7 +812,7 @@ public partial class Main : Form
 
         Settings.Startup.LoadSaveFile(path);
         if (Settings.Sounds.PlaySoundSAVLoad)
-            SystemSounds.Asterisk.Play();
+            SoundPlayer.SystemSounds.Asterisk.Play();
         return true;
     }
 
@@ -1108,12 +1108,12 @@ public partial class Main : Form
     private void ClickLegality(object sender, EventArgs e)
     {
         if (!PKME_Tabs.EditsComplete)
-        { SystemSounds.Hand.Play(); return; }
+        { SoundPlayer.SystemSounds.Hand.Play(); return; }
 
         var pk = PreparePKM();
 
         if (pk.Species == 0 || !pk.ChecksumValid)
-        { SystemSounds.Hand.Play(); return; }
+        { SoundPlayer.SystemSounds.Hand.Play(); return; }
 
         var la = new LegalityAnalysis(pk, C_SAV.SAV.Personal);
         PKME_Tabs.UpdateLegality(la);
@@ -1138,7 +1138,7 @@ public partial class Main : Form
         else if (Settings.Display.IgnoreLegalPopup && la.Valid)
         {
             if (Settings.Sounds.PlaySoundLegalityCheck)
-                SystemSounds.Asterisk.Play();
+                SoundPlayer.SystemSounds.Asterisk.Play();
         }
         else
         {

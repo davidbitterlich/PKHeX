@@ -1,7 +1,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Windows.Forms.Automation;
+//using System.Windows.Forms.Automation;
 using static PKHeX.WinForms.Properties.Resources;
 
 namespace PKHeX.WinForms.Controls;
@@ -32,8 +32,8 @@ public partial class GenderToggle : UserControl, IGenderToggle
     {
         Invalidate();
         base.OnEnter(e);
-        AccessibilityObject.RaiseAutomationNotification(AutomationNotificationKind.Other,
-            AutomationNotificationProcessing.All, AccessibleDescription ?? AccessibleName ?? "");
+        //AccessibilityObject.RaiseAutomationNotification(AutomationNotificationKind.Other,
+        //    AutomationNotificationProcessing.All, AccessibleDescription ?? AccessibleName ?? "");
     }
 
     protected override void OnLeave(EventArgs e)
@@ -90,12 +90,12 @@ public partial class GenderToggle : UserControl, IGenderToggle
     {
         if (AllowClick && ToggleGender().CanToggle)
         {
-            AccessibilityObject.RaiseAutomationNotification(AutomationNotificationKind.Other,
-                AutomationNotificationProcessing.All, $"Gender changed to {Gender}.");
+            //AccessibilityObject.RaiseAutomationNotification(AutomationNotificationKind.Other,
+            //    AutomationNotificationProcessing.All, $"Gender changed to {Gender}.");
             return;
         }
-        AccessibilityObject.RaiseAutomationNotification(AutomationNotificationKind.Other,
-            AutomationNotificationProcessing.All, $"Cannot change gender. Current value is {Gender}.");
+        //AccessibilityObject.RaiseAutomationNotification(AutomationNotificationKind.Other,
+        //    AutomationNotificationProcessing.All, $"Cannot change gender. Current value is {Gender}.");
     }
 
     public (bool CanToggle, int Value) ToggleGender()

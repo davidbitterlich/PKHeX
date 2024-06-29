@@ -233,20 +233,20 @@ public partial class SAV_Trainer8 : Form
     private void B_CopyFromPartyToTrainerCard_Click(object sender, EventArgs e)
     {
         SAV.Blocks.TrainerCard.SetPartyData();
-        System.Media.SystemSounds.Asterisk.Play();
+        SoundPlayer.SystemSounds.Asterisk.Play();
         ChangeTrainerCardIndex(this, EventArgs.Empty);
     }
 
     private void B_CopyFromPartyToTitleScreen_Click(object sender, EventArgs e)
     {
         SAV.Blocks.TitleScreen.SetPartyData();
-        System.Media.SystemSounds.Asterisk.Play();
+        SoundPlayer.SystemSounds.Asterisk.Play();
         ChangeTitleScreenIndex(this, EventArgs.Empty);
     }
 
     private void B_GetAllDiglett_Click(object sender, EventArgs e)
     {
         SAV.UnlockAllDiglett();
-        System.Media.SystemSounds.Asterisk.Play();
+        SoundPlayer.SystemSounds.Asterisk.Play();
     }
 }

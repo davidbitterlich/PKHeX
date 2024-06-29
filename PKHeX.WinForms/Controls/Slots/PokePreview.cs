@@ -134,7 +134,7 @@ public partial class PokePreview : Form
     public static Size MeasureSize(ReadOnlySpan<char> text, Font font)
     {
         const TextFormatFlags flags = TextFormatFlags.LeftAndRightPadding | TextFormatFlags.VerticalCenter;
-        return TextRenderer.MeasureText(text, font, new Size(), flags);
+        return TextRenderer.MeasureText(text.ToString(), font, new Size(), flags);
     }
 
     private static (string Detail, string Encounter) GetStatsString(PKM pk, LegalityAnalysis la)

@@ -377,7 +377,7 @@ public partial class SAV_PokedexGG : Form
         GetEntry();
         allModifying = false;
         LB_Species.SelectedIndex = 0;
-        System.Media.SystemSounds.Asterisk.Play();
+        SoundPlayer.SystemSounds.Asterisk.Play();
     }
 
     private void ClearAll(object sender)

@@ -333,7 +333,7 @@ public partial class SAV_Inventory : Form
         }
 
         ModifyPouch(CurrentPouch, p => p.GiveAllItems(SAV, items, (int)NUD_Count.Value));
-        System.Media.SystemSounds.Asterisk.Play();
+        SoundPlayer.SystemSounds.Asterisk.Play();
     }
 
     private static bool GetModifySettings(InventoryPouch pouch, out bool truncate, out bool shuffle)

@@ -8,7 +8,7 @@ namespace PKHeX.WinForms.Controls;
 
 public sealed class CryPlayer
 {
-    private readonly SoundPlayer Sounds = new();
+    //private readonly SoundPlayer Sounds = new();
 
     public void PlayCry(ISpeciesForm pk, EntityContext context)
     {
@@ -19,18 +19,21 @@ public sealed class CryPlayer
         if (!File.Exists(path))
             return;
 
-        Sounds.SoundLocation = path;
-        try { Sounds.Play(); }
-        catch { Debug.WriteLine("Failed to play sound."); }
+        //Sounds.SoundLocation = path;
+        //try { Sounds.Play(); }
+        //catch { Debug.WriteLine("Failed to play sound."); }
+        SoundPlayer.SoundPlayer.PlaySound(path);
     }
 
     public void Stop()
     {
+        /*
         if (string.IsNullOrWhiteSpace(Sounds.SoundLocation))
             return;
 
         try { Sounds.Stop(); }
-        catch { Debug.WriteLine("Failed to stop sound."); }
+        catch { Debug.WriteLine("Failed to stop sound."); }*/
+        SoundPlayer.SoundPlayer.Stop();
     }
 
     private static string GetCryPath(ISpeciesForm pk, string cryFolder, EntityContext context)

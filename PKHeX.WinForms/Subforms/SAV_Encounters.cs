@@ -148,13 +148,13 @@ public partial class SAV_Encounters : Form
         int index = Array.IndexOf(PKXBOXES, pb);
         if (index >= RES_MAX)
         {
-            System.Media.SystemSounds.Exclamation.Play();
+            SoundPlayer.SystemSounds.Exclamation.Play();
             return;
         }
         index += SCR_Box.Value * RES_MIN;
         if (index >= Results.Count)
         {
-            System.Media.SystemSounds.Exclamation.Play();
+            SoundPlayer.SystemSounds.Exclamation.Play();
             return;
         }
 
@@ -234,7 +234,7 @@ public partial class SAV_Encounters : Form
         foreach (var chk in TypeFilters.Controls.OfType<CheckBox>())
             chk.Checked = true;
 
-        System.Media.SystemSounds.Asterisk.Play();
+        SoundPlayer.SystemSounds.Asterisk.Play();
     }
 
     // View Updates
@@ -406,7 +406,7 @@ public partial class SAV_Encounters : Form
             WinFormsUtil.Alert(MsgDBSearchNone);
 
         SetResults(results); // updates Count Label as well.
-        System.Media.SystemSounds.Asterisk.Play();
+        SoundPlayer.SystemSounds.Asterisk.Play();
         B_Search.Enabled = true;
         EncounterMovesetGenerator.ResetFilters();
     }

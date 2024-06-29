@@ -223,7 +223,7 @@ public sealed partial class PKMEditor : UserControl, IMainEditor
             if (ModifierKeys == (Keys.Control | Keys.Shift | Keys.Alt))
                 return true; // Override
 
-            System.Media.SystemSounds.Exclamation.Play();
+            SoundPlayer.SystemSounds.Exclamation.Play();
             return false;
         }
     }
@@ -1775,7 +1775,7 @@ public sealed partial class PKMEditor : UserControl, IMainEditor
         g.FillRectangle(backBrush, rec);
 
         const TextFormatFlags flags = TextFormatFlags.Left | TextFormatFlags.EndEllipsis | TextFormatFlags.ExpandTabs | TextFormatFlags.SingleLine;
-        TextRenderer.DrawText(g, foreText, e.Font, rec, textColor, flags);
+        TextRenderer.DrawText(g, foreText.ToString(), e.Font, rec, textColor, flags);
     }
 
     private void MeasureDropDownHeight(object? sender, MeasureItemEventArgs e) => e.ItemHeight = CB_RelearnMove1.ItemHeight;

@@ -173,13 +173,13 @@ public partial class SAV_MysteryGiftDB : Form
         int index = Array.IndexOf(PKXBOXES, pb);
         if (index >= RES_MAX)
         {
-            System.Media.SystemSounds.Exclamation.Play();
+            SoundPlayer.SystemSounds.Exclamation.Play();
             return -1;
         }
         index += SCR_Box.Value * RES_MIN;
         if (index >= Results.Count)
         {
-            System.Media.SystemSounds.Exclamation.Play();
+            SoundPlayer.SystemSounds.Exclamation.Play();
             return -1;
         }
         return index;
@@ -230,7 +230,7 @@ public partial class SAV_MysteryGiftDB : Form
         RTB_Instructions.Clear();
 
         if (sender != this)
-            System.Media.SystemSounds.Asterisk.Play();
+            SoundPlayer.SystemSounds.Asterisk.Play();
     }
 
     private static Func<MysteryGift, bool> IsPresent<TTable>(TTable pt) where TTable : IPersonalTable => z => pt.IsPresentInGame(z.Species, z.Form);
@@ -355,7 +355,7 @@ public partial class SAV_MysteryGiftDB : Form
             WinFormsUtil.Alert(MsgDBSearchNone);
 
         SetResults([..results]); // updates Count Label as well.
-        System.Media.SystemSounds.Asterisk.Play();
+        SoundPlayer.SystemSounds.Asterisk.Play();
     }
 
     private void UpdateScroll(object sender, ScrollEventArgs e)

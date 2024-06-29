@@ -2,10 +2,8 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -17,7 +15,7 @@
     <RootNamespace>PKHeX.WinForms</RootNamespace>
   </PropertyGroup>
 
-  <PropertyGroup>
+  <!--<PropertyGroup>
     <DebugType>portable</DebugType>
     <EmbedAllSources>true</EmbedAllSources>
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
@@ -25,7 +23,7 @@
     <PublishSingleFile>true</PublishSingleFile>
     <PublishTrimmed>false</PublishTrimmed>
     <SelfContained>false</SelfContained>
-  </PropertyGroup>
+  </PropertyGroup>-->
 
   <ItemGroup>
     <ProjectReference Include="..\PKHeX.Core\PKHeX.Core.csproj" />
@@ -53,6 +51,18 @@
     <EmbeddedResource Update="Subforms\Save Editors\SAV_Inventory.resx">
       <DependentUpon>SAV_Inventory.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Core.System.Drawing.Design" Version="1.0.0-alpha5" />
+    <PackageReference Include="Core.System.Windows.Forms" Version="1.0.0-alpha5" />
+    <PackageReference Include="OpenTK" Version="5.0.0-pre.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\sounds\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

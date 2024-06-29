@@ -20,7 +20,9 @@ public static class QREncode
     {
         using var generator = new QRCodeGenerator();
         using var data = generator.CreateQrCode(msg, QRCodeGenerator.ECCLevel.Q);
-        using var code = new QRCode(data);
-        return code.GetGraphic(ppm);
+        return QRCodeBitmapConverter.GetBitmap(data, ppm);
+        //using var code = new QRCode(data);
+        //return code.GetGraphic(ppm);
     }
 }
+

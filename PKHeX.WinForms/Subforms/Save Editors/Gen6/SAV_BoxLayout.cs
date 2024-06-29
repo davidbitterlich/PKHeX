@@ -232,7 +232,7 @@ public partial class SAV_BoxLayout : Form
         editing = renamingBox = true;
         if (!MoveItem(dir))
         {
-            System.Media.SystemSounds.Asterisk.Play();
+            SoundPlayer.SystemSounds.Asterisk.Play();
         }
         else if (!SAV.SwapBox(index, index + dir)) // valid but locked
         {

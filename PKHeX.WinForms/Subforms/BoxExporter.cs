@@ -49,7 +49,7 @@ public partial class BoxExporter : Form
         int ctr = BoxExport.Export(SAV, folder, namer, settings);
         if (settings.Notify == BoxExportNofify.Silent)
         {
-            System.Media.SystemSounds.Asterisk.Play();
+            SoundPlayer.SystemSounds.Asterisk.Play();
             return;
         }
 

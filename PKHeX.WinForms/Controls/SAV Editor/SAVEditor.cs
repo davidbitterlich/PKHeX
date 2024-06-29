@@ -446,7 +446,7 @@ public partial class SAVEditor : UserControl, ISlotViewer<PictureBox>, ISaveFile
         if (!string.IsNullOrWhiteSpace(message))
             WinFormsUtil.Alert(message + $" ({count})");
         else
-            SystemSounds.Asterisk.Play();
+            SoundPlayer.SystemSounds.Asterisk.Play();
     }
 
     private void ClickBoxDouble(object sender, MouseEventArgs e)
@@ -886,7 +886,7 @@ public partial class SAVEditor : UserControl, ISlotViewer<PictureBox>, ISaveFile
         var lines = bulk.Parse.Select(z => $"{z.Judgement}: {z.Comment}");
         var msg = string.Join(Environment.NewLine, lines);
         WinFormsUtil.SetClipboardText(msg);
-        SystemSounds.Asterisk.Play();
+        SoundPlayer.SystemSounds.Asterisk.Play();
     }
 
     // File I/O

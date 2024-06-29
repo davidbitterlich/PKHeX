@@ -30,6 +30,7 @@ internal static class Program
         AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 #endif
         // Run the application
+        AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
         var splash = new SplashScreen();

@@ -12,8 +12,6 @@ public partial class SAV_Chatter : Form
     private readonly SaveFile SAV;
     private readonly IChatter Chatter;
 
-    private readonly SoundPlayer Sounds = new();
-
     public SAV_Chatter(SaveFile sav)
     {
         InitializeComponent();
@@ -81,10 +79,16 @@ public partial class SAV_Chatter : Form
             return;
 
         var data = ConvertPCMToWAV(Chatter.Recording);
-        Sounds.Stream = new MemoryStream(data);
+        /*Sounds.Stream = new MemoryStream(data);
         try
         {
             Sounds.Play();
+        }
+        catch { Debug.WriteLine("Failed to play sound."); }*/
+
+        try
+        {
+            SoundPlayer.SoundPlayer.PlaySound(data);
         }
         catch { Debug.WriteLine("Failed to play sound."); }
     }
@@ -92,13 +96,13 @@ public partial class SAV_Chatter : Form
     private void B_Save_Click(object sender, EventArgs e)
     {
         Origin.CopyChangesFrom(SAV);
-        Sounds.Stop();
+        SoundPlayer.SoundPlayer.Stop();
         Close();
     }
 
     private void B_Cancel_Click(object sender, EventArgs e)
     {
-        Sounds.Stop();
+        SoundPlayer.SoundPlayer.Stop();
         Close();
     }
 
